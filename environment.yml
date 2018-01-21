@@ -73,6 +73,7 @@ dependencies:
 - zlib=1.2.11=hf3cbc9b_2
 - pip:
   - enum34==1.1.6
+  - graphviz==0.8.2
   - ipython-genutils==0.2.0
   - jupyter-client==5.2.1
   - jupyter-core==4.4.0
@@ -80,6 +81,7 @@ dependencies:
   - markdown==2.6.11
   - prompt-toolkit==1.0.15
   - protobuf==3.5.1
+  - pydot==1.2.4
   - pyyaml==3.12
   - tensorflow==1.4.1
   - tensorflow-tensorboard==0.4.0
