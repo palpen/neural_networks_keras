@@ -1,2 +1,2 @@
 # neural_networks_keras
-Notes on neural networks using Keras
+My notes and scripts while working through "Deep Learning with Python" by Francois Chollet
