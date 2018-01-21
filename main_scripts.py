@@ -31,18 +31,18 @@ def vectorize_words(sequences, dimension):
 # building and fitting neural networks #
 ########################################
 
-def nn_architecture(num_layers, num_act_units, output_act_units, input_unit_shape):
+def nn_architecture(num_act_units, output_act_units, input_unit_shape):
     """
     Custom neural network architecture for the reuters dataset
-    Note that num_layers must equal length of num_act_units
+    Length of list in num_act_units correspond to number of
+    hidden layers in network
 
-    num_layers (number of hidden layers): int
     num_act_units (number of activation units): list
     output_act_units (number of activation units in output layer): int
     input_unit_shape (shape of input features): tuple
     """
 
-    assert num_layers == len(num_act_units), "num_layers must equal length of num_act_units list"
+    num_layers = len(num_act_units)
 
     custom_model = models.Sequential()
 
