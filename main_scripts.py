@@ -1,6 +1,35 @@
 from keras import models
 from keras import layers
 
+import numpy as np
+
+
+#############
+# data prep #
+#############
+
+def vectorize_words(sequences, dimension):
+    """
+    One hot encode each example in sequences
+    Returns a sparse matrix of shape
+    (len(sequences), dimension)
+    """
+
+    results = np.zeros((len(sequences), dimension))
+
+    for i, sequence in enumerate(sequences):
+
+        # sequence is a list which we use to
+        # access a subset of the array results
+        # at row i
+        results[i, sequence] = 1.
+
+    return results
+
+
+########################################
+# building and fitting neural networks #
+########################################
 
 def nn_architecture(num_layers, num_act_units, output_act_units, input_unit_shape):
     """
@@ -45,6 +74,7 @@ def nn_fit(x_train, y_train, x_val, y_val, model, num_epochs, batch_size):
                         epochs=num_epochs,
                         batch_size=batch_size,
                         validation_data=(x_val, y_val),
-                        verbose=1)
+                        verbose=2)
 
     return history
+
