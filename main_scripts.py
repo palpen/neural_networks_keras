@@ -31,7 +31,7 @@ def vectorize_words(sequences, dimension):
 # building and fitting neural networks #
 ########################################
 
-def nn_architecture(num_act_units, output_act_units, input_unit_shape):
+def nn_architecture(num_act_units, output_act_units, input_unit_shape, regularizer=None):
     """
     Custom neural network architecture for the reuters dataset
     Length of list in num_act_units correspond to number of
@@ -47,7 +47,10 @@ def nn_architecture(num_act_units, output_act_units, input_unit_shape):
     custom_model = models.Sequential()
 
     # first hidden layer (input are the one hot encoded top 10,000 words)
-    custom_model.add(layers.Dense(num_act_units[0], activation='relu', input_shape=input_unit_shape))
+    custom_model.add(layers.Dense(num_act_units[0],
+                                  activation='relu',
+                                  kernel_regularizer=regularizer,
+                                  input_shape=input_unit_shape))
 
     # remaining num_layers - 1 hidden layers
     for l in range(num_layers - 1):
